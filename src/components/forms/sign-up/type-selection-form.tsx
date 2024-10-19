@@ -18,7 +18,23 @@ const TypeSelectionForm = ({ register, userType, setUserType }: Props) => {
                 <br /> experience so it best suits you.
             </p>
 
-            <UserTypeCard />
+            <UserTypeCard
+                value='owner'
+                title='I own a business'
+                text='Setting up my account for my company'
+                register={register}
+                userType={userType}
+                setUserType={setUserType}
+            />
+
+            <UserTypeCard
+                value='Student'
+                title='I am a Student'
+                text='Looking to learn about the tool'
+                register={register}
+                userType={userType}
+                setUserType={setUserType}
+            />
         </>
     )
 }

@@ -4,10 +4,18 @@ import { useAuthContextHook } from '@/context/useAuthContext'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import TypeSelectionForm from './type-selection-form'
+import dynamic from 'next/dynamic';
+import AccountDetailsForm from './account-details-form';
 
-type Props = {}
+const DynamicDetailForm = dynamic(() => import('./account-details-form'), {
+    ssr: false,
+})
 
-const RegistrationFormStep = (props: Props) => {
+const DynamicOtpForm = dynamic(() => import('./otp-form'), {
+    ssr: false,
+})
+
+const RegistrationFormStep = () => {
 
     const { register, formState: { errors }, setValue } = useFormContext()
     const { currentStep } = useAuthContextHook()
@@ -25,7 +33,20 @@ const RegistrationFormStep = (props: Props) => {
                     setUserType={setOnUserType}
                 />
             )
+        case 2:
+            return (
+                <DynamicDetailForm
+                    errors={errors}
+                    register={register}
+                />
+            )
         default:
+            return (
+                <DynamicOtpForm
+                    onOTP={onOtp}
+                    setOTP={setOnOtp}
+                />
+            )
             break;
     }
 

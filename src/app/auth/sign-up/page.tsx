@@ -1,4 +1,6 @@
+import ButtonHandler from "@/components/forms/sign-up/button-handler"
 import SignUpFormProvider from "@/components/forms/sign-up/form-provider"
+import HighlightBar from "@/components/forms/sign-up/highlight-bar"
 import RegistrationFormStep from "@/components/forms/sign-up/registration"
 
 type Props = {}
@@ -9,8 +11,10 @@ const SignUp = (props: Props) => {
       <div className="flex flex-col h-full gap-3">
         <SignUpFormProvider>
           <div className="flex flex-col gap-3">
-            <RegistrationFormStep></RegistrationFormStep>
-        </div>
+            <RegistrationFormStep />
+            <ButtonHandler />
+          </div>
+          <HighlightBar />
         </SignUpFormProvider>
       </div>
     </div>
