@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { strict } from 'assert'
 
-type Props = {
+type FormGeneratorProps = {
     type: 'text' | 'email' | 'password'
     inputType: 'select' | 'input' | 'textarea'
     options?: { value: string; label: string; id: string }[]
@@ -32,7 +32,7 @@ const FormGenerator = ({
     label,
     lines,
     options,
-}: Props) => {
+}: FormGeneratorProps) => {
     switch (inputType) {
         case 'input':
         default:
@@ -117,7 +117,6 @@ const FormGenerator = ({
                     />
                 </Label>
             )
-        defualt: return <></>
     }
 }
 

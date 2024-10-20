@@ -1,28 +1,29 @@
-'use client';
-
-import { useAuthContextHook } from '@/context/useAuthContext'
+'use client'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import TypeSelectionForm from './type-selection-form'
-import dynamic from 'next/dynamic';
-import AccountDetailsForm from './account-details-form';
+import dynamic from 'next/dynamic'
+import { useAuthContextHook } from '@/context/useAuthContext'
 
-const DynamicDetailForm = dynamic(() => import('./account-details-form'), {
+const DetailForm = dynamic(() => import('./account-details-form'), {
     ssr: false,
 })
 
-const DynamicOtpForm = dynamic(() => import('./otp-form'), {
+const OTPForm = dynamic(() => import('./otp-form'), {
     ssr: false,
 })
 
 const RegistrationFormStep = () => {
-
-    const { register, formState: { errors }, setValue } = useFormContext()
+    const {
+        register,
+        formState: { errors },
+        setValue,
+    } = useFormContext()
     const { currentStep } = useAuthContextHook()
-    const [onOtp, setOnOtp] = useState<string>('')
-    const [onUserType, setOnUserType] = useState<'owner' | 'student'>('owner');
+    const [onOTP, setOnOTP] = useState<string>('')
+    const [onUserType, setOnUserType] = useState<'owner' | 'student'>('owner')
 
-    setValue('otp', onOtp);
+    setValue('otp', onOTP)
 
     switch (currentStep) {
         case 1:
@@ -35,24 +36,22 @@ const RegistrationFormStep = () => {
             )
         case 2:
             return (
-                <DynamicDetailForm
+                <DetailForm
                     errors={errors}
                     register={register}
                 />
             )
-        default:
+        case 3:
             return (
-                <DynamicOtpForm
-                    onOTP={onOtp}
-                    setOTP={setOnOtp}
+                <OTPForm
+                    onOTP={onOTP}
+                    setOTP={setOnOTP}
                 />
             )
             break;
     }
 
-    return (
-        <div>RegistrationFormStep</div>
-    )
+    return <div>RegistrationFormStep</div>
 }
 
 export default RegistrationFormStep

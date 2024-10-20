@@ -22,6 +22,7 @@ export const useSignUpForm = () => {
         mode: 'onChange'
     });
 
+
     const onGenerateOtp = async (email: string, password: string, onNext: React.Dispatch<React.SetStateAction<number>>) => {
         if (!isLoaded) return;
 
@@ -37,8 +38,9 @@ export const useSignUpForm = () => {
 
             onNext(prev => prev + 1)
         } catch (error: any) {
+            console.log(error)
             toast({
-                title: 'Error',
+                title: 'Error herereee',
                 description: error.errors[0].description
             })
         }

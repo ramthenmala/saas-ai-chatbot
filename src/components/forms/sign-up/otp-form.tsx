@@ -1,18 +1,12 @@
-import React from 'react'
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
+import React from 'react';
+import OTPInput from '../otp';
 
-import {
-    InputOTP,
-    InputOTPGroup,
-    InputOTPSlot,
-} from "@/components/ui/input-otp"
-
-type OtpProps = {
+type Props = {
     setOTP: React.Dispatch<React.SetStateAction<string>>
     onOTP: string
 }
 
-const OTPForm = ({ onOTP, setOTP }: OtpProps) => {
+const OTPForm = ({ onOTP, setOTP }: Props) => {
     return (
         <>
             <h2 className="text-gravel md:text-4xl font-bold">Enter OTP</h2>
@@ -20,7 +14,10 @@ const OTPForm = ({ onOTP, setOTP }: OtpProps) => {
                 Enter the one time password that was sent to your email.
             </p>
             <div className="w-full justify-center flex py-5">
-                
+                <OTPInput
+                    otp={onOTP}
+                    setOtp={setOTP}
+                />
             </div>
         </>
     )
