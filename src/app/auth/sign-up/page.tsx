@@ -1,11 +1,9 @@
-import ButtonHandler from "@/components/forms/sign-up/button-handler"
-import SignUpFormProvider from "@/components/forms/sign-up/form-provider"
-import HighlightBar from "@/components/forms/sign-up/highlight-bar"
-import RegistrationFormStep from "@/components/forms/sign-up/registration"
+import ButtonHandler from "@/components/Forms/SignUp/ButtonHandler"
+import SignUpFormProvider from "@/components/Forms/SignUp/SignUpFormProvider"
+import HighlightBar from "@/components/Forms/SignUp/HighlightBar"
+import RegistrationFormStep from "@/components/Forms/SignUp/RegistrationFormStep"
 
-type Props = {}
-
-const SignUp = (props: Props) => {
+const SignUp = () => {
   return (
     <div className="flex-1 py-36 md:px-16 w-full">
       <div className="flex flex-col h-full gap-3">

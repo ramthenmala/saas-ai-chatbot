@@ -1,15 +1,15 @@
 'use client'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import TypeSelectionForm from './type-selection-form'
+import TypeSelectionForm from './TypeSelectionForm'
 import dynamic from 'next/dynamic'
 import { useAuthContextHook } from '@/context/useAuthContext'
 
-const DetailForm = dynamic(() => import('./account-details-form'), {
+const DetailForm = dynamic(() => import('./AccountDetailsForm'), {
     ssr: false,
 })
 
-const OTPForm = dynamic(() => import('./otp-form'), {
+const OTPForm = dynamic(() => import('./OTPForm'), {
     ssr: false,
 })
 

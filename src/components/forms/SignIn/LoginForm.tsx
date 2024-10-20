@@ -1,12 +1,10 @@
 'use client'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import FormGenerator from '../form-generator'
-import { USER_LOGIN_FORM } from '@/constants/forms'
+import FormGenerator from '../FormGenerator'
+import { userLoginForm } from '@/constants/forms'
 
-type Props = {}
-
-const LoginForm = (props: Props) => {
+const LoginForm = () => {
     const {
         register,
         formState: { errors },
@@ -17,7 +15,7 @@ const LoginForm = (props: Props) => {
             <p className="text-iridium md:text-sm">
                 You will receive a one time password
             </p>
-            {USER_LOGIN_FORM.map((field) => (
+            {userLoginForm.map((field) => (
                 <FormGenerator
                     key={field.id}
                     {...field}

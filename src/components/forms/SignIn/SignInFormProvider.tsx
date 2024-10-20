@@ -1,15 +1,12 @@
 'use client'
-import { Loader } from '@/components/loader'
+import { Loader } from '@/components/Loader'
 import { AuthContextProvider } from '@/context/useAuthContext'
 import { useSignInForm } from '@/hooks/use-sign-in'
+import { ReactChildrenProps } from '@/types/Children'
 import React from 'react'
 import { FormProvider } from 'react-hook-form'
 
-type Props = {
-    children: React.ReactNode
-}
-
-const SignInFormProvider = ({ children }: Props) => {
+const SignInFormProvider = ({ children }: ReactChildrenProps) => {
     const { methods, onHandleSubmit, loading } = useSignInForm()
 
     return (

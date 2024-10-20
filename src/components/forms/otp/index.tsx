@@ -3,13 +3,9 @@ import {
     InputOTP,
     InputOTPSlot,
 } from "@/components/ui/input-otp"
+import { OtpProps } from '@/types/OptProps'
 
-type Props = {
-    otp: string
-    setOtp: React.Dispatch<React.SetStateAction<string>>
-}
-
-const OTPInput = ({ otp, setOtp }: Props) => {
+const OTPInput = ({ otp, setOtp }: OtpProps) => {
     return (
         <InputOTP
             maxLength={6}

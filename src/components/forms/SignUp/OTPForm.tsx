@@ -1,12 +1,7 @@
 import React from 'react';
-import OTPInput from '../otp';
+import OTPInput from '../Otp';
 
-type Props = {
-    setOTP: React.Dispatch<React.SetStateAction<string>>
-    onOTP: string
-}
-
-const OTPForm = ({ onOTP, setOTP }: Props) => {
+const OTPForm = ({ onOTP, setOTP }: OtpFormProps) => {
     return (
         <>
             <h2 className="text-gravel md:text-4xl font-bold">Enter OTP</h2>

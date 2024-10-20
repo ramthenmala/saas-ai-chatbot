@@ -2,17 +2,13 @@
 
 import React from 'react'
 import { FormProvider } from 'react-hook-form'
-import { Loader } from '@/components/loader'
+import { Loader } from '@/components/Loader'
 import { AuthContextProvider } from '@/context/useAuthContext'
 import { useSignUpForm } from '@/hooks/use-sign-up'
+import { ReactChildrenProps } from '@/types/Children'
 
-type Props = {
-    children: React.ReactNode
-}
-
-const SignUpFormProvider = ({ children }: Props) => {
-
-    const { methods, onHandleSubmit, onGenerateOtp, loading } = useSignUpForm()
+const SignUpFormProvider = ({ children }: ReactChildrenProps) => {
+    const { methods, onHandleSubmit, loading } = useSignUpForm()
 
     return (
         <AuthContextProvider>

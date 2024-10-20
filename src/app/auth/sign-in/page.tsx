@@ -1,9 +1,8 @@
-
-import SignInFormProvider from '@/components/forms/sign-in/form-provider'
-import LoginForm from '@/components/forms/sign-in/login-form'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import SignInFormProvider from '@/components/Forms/SignIn/SignInFormProvider'
+import LoginForm from '@/components/Forms/SignIn/LoginForm'
+import { Button } from '@/components/ui/button'
 
 const SignInPage = () => {
     return (
@@ -22,7 +21,7 @@ const SignInPage = () => {
                             <p>
                                 Don’t have an account?{' '}
                                 <Link
-                                    href="/auth/sign-up"
+                                    href="/auth/signup"
                                     className="font-bold"
                                 >
                                     Create one

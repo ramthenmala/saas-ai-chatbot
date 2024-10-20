@@ -1,24 +1,9 @@
 import React from 'react'
 import { ErrorMessage } from '@hookform/error-message'
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { strict } from 'assert'
-
-type FormGeneratorProps = {
-    type: 'text' | 'email' | 'password'
-    inputType: 'select' | 'input' | 'textarea'
-    options?: { value: string; label: string; id: string }[]
-    label?: string
-    placeholder: string
-    register: UseFormRegister<any>
-    name: string
-    errors: FieldErrors<FieldValues>
-    lines?: number
-    form?: string
-    defaultValue?: string
-}
+import { FormGeneratorProps } from '@/types/FormGeneratorProps'
 
 const FormGenerator = ({
     errors,

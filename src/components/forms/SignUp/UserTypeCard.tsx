@@ -1,21 +1,12 @@
 'use client';
 
 import React from 'react'
-import { FieldValues, UseFormRegister } from 'react-hook-form'
+import { User } from 'lucide-react';
 import { Card, CardContent, CardDescription } from '@/components/ui/card';
 import { cn } from '@/app/lib/utils';
-import { User } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label'
-
-type UserTypeProps = {
-    value: string
-    title: string
-    text: string
-    register: UseFormRegister<FieldValues>
-    userType: 'owner' | 'student';
-    setUserType: React.Dispatch<React.SetStateAction<'owner' | 'student'>>;
-}
+import { UserTypeProps } from '@/types/UserTypeProps';
 
 const UserTypeCard = ({ value, title, text, register, userType, setUserType }: UserTypeProps) => {
     return (

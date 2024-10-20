@@ -2,11 +2,11 @@
 
 import { client } from "@/app/lib/prisma"
 
-export const onCompleteUserRegistration = async(
+export const onCompleteUserRegistration = async (
     fullname: string,
     clerkId: string,
     type: string
-) => { 
+) => {
     try {
         const registerd = await client.user.create({
             data: {
@@ -29,7 +29,7 @@ export const onCompleteUserRegistration = async(
                 status: 200,
                 user: registerd
             }
-         }
+        }
     } catch (error) {
         return {
             status: 400

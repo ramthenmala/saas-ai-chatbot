@@ -8,7 +8,7 @@ type UserRegistrationProps = {
     name: string
 }
 
-export const USER_REGISTRATION_FORM: UserRegistrationProps[] = [
+export const userRegistrationForm: UserRegistrationProps[] = [
     {
         id: '1',
         inputType: 'input',
@@ -46,7 +46,7 @@ export const USER_REGISTRATION_FORM: UserRegistrationProps[] = [
     },
 ]
 
-export const USER_LOGIN_FORM: UserRegistrationProps[] = [
+export const userLoginForm: UserRegistrationProps[] = [
     {
         id: '1',
         inputType: 'input',
