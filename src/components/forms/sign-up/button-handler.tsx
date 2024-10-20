@@ -9,15 +9,20 @@ import { useFormContext } from 'react-hook-form';
 
 const ButtonHandler = () => {
     const { setCurrentStep, currentStep } = useAuthContextHook();
-    const { formState, getFieldState, getValues } = useFormContext();
+    const { formState, getValues } = useFormContext();
     const { onGenerateOtp } = useSignUpForm();
 
-    const { isValid } = formState;
+    const { isValid } = formState; 
 
-    const isNameDirty = getFieldState('fullname', formState).isDirty;
-    const isEmailDirty = getFieldState('email', formState).isDirty;
-    const isPasswordDirty = getFieldState('password', formState).isDirty;
+    
+    const fullname = getValues('fullname');
+    const email = getValues('email');
+    const password = getValues('password');
 
+    console.log('currentStep', currentStep);
+    console.log('fullname:', fullname, 'email:', email, 'password:', password); 
+
+    
     if (currentStep === 3) {
         return (
             <div className='w-full flex flex-col gap-3 items-center'>
@@ -40,19 +45,19 @@ const ButtonHandler = () => {
                     type='button' 
                     className='w-full'
                     onClick={() => {
-                        if (isNameDirty && isEmailDirty && isPasswordDirty) {
+                        if (fullname && email && password) { 
                             onGenerateOtp(
-                                getValues('email'),
-                                getValues('password'),
+                                email,
+                                password,
                                 setCurrentStep
                             );
                         }
                     }}
-                    disabled={!isNameDirty || !isEmailDirty || !isPasswordDirty} 
+                    disabled={!fullname || !email || !password} 
                 >
                     Continue
                 </Button>
-                {isEmailDirty && <p>Email is dirty</p>}
+                {email && <p>Email field is filled</p>}
                 <p>Already have an account?{' '}
                     <Link href='/auth/sign-in' className='font-bold'>
                         Sign In
@@ -62,10 +67,11 @@ const ButtonHandler = () => {
         );
     }
 
+    
     return (
         <div className='w-full flex flex-col gap-3 items-center'>
             <Button
-                type='button'
+                type='button' 
                 className='w-full'
                 onClick={() => setCurrentStep((prev: number) => prev + 1)}
             >

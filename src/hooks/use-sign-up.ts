@@ -22,29 +22,45 @@ export const useSignUpForm = () => {
         mode: 'onChange'
     });
 
-
     const onGenerateOtp = async (email: string, password: string, onNext: React.Dispatch<React.SetStateAction<number>>) => {
-        if (!isLoaded) return;
+        if (!isLoaded) {
+            toast({
+                title: 'Error',
+                description: 'SignUp process is not fully loaded yet.',
+            });
+            return;
+        }
+
+        if (!email || !password) {
+            toast({
+                title: 'Error',
+                description: 'Please enter a valid email and password.',
+            });
+            return;
+        }
 
         try {
-            await signUp.create({
+            const signUpResponse = await signUp.create({
                 emailAddress: email,
                 password: password
-            })
+            });
 
-            await signUp.prepareEmailAddressVerification({
+            const verificationResponse = await signUp.prepareEmailAddressVerification({
                 strategy: 'email_code'
-            })
+            });
 
-            onNext(prev => prev + 1)
+            onNext((prev) => prev + 1);
         } catch (error: any) {
-            console.log(error)
+            console.error('Clerk API Error:', error);
+
+            const errorMessage = error?.errors?.[0]?.description || 'An unexpected error occurred.';
+
             toast({
-                title: 'Error herereee',
-                description: error.errors[0].description
-            })
+                title: 'Error',
+                description: errorMessage
+            });
         }
-    }
+    };
 
     const onHandleSubmit = methods.handleSubmit(
         async (values: UserRegistrationProps) => {
