@@ -12,17 +12,15 @@ const ButtonHandler = () => {
     const { formState, getValues } = useFormContext();
     const { onGenerateOtp } = useSignUpForm();
 
-    const { isValid } = formState; 
+    const { isValid } = formState;
 
-    
     const fullname = getValues('fullname');
     const email = getValues('email');
     const password = getValues('password');
 
     console.log('currentStep', currentStep);
-    console.log('fullname:', fullname, 'email:', email, 'password:', password); 
+    console.log('fullname:', fullname, 'email:', email, 'password:', password);
 
-    
     if (currentStep === 3) {
         return (
             <div className='w-full flex flex-col gap-3 items-center'>
@@ -42,10 +40,10 @@ const ButtonHandler = () => {
         return (
             <div className='w-full flex flex-col gap-3 items-center'>
                 <Button
-                    type='button' 
+                    type='button'
                     className='w-full'
                     onClick={() => {
-                        if (fullname && email && password) { 
+                        if (fullname && email && password) {
                             onGenerateOtp(
                                 email,
                                 password,
@@ -53,7 +51,7 @@ const ButtonHandler = () => {
                             );
                         }
                     }}
-                    disabled={!fullname || !email || !password} 
+                    disabled={!fullname || !email || !password}
                 >
                     Continue
                 </Button>
@@ -67,11 +65,11 @@ const ButtonHandler = () => {
         );
     }
 
-    
+
     return (
         <div className='w-full flex flex-col gap-3 items-center'>
             <Button
-                type='button' 
+                type='button'
                 className='w-full'
                 onClick={() => setCurrentStep((prev: number) => prev + 1)}
             >
