@@ -32,7 +32,7 @@ export const onGetAllAccountDomains = async () => {
                 }
             }
         })
-
+        console.log('...domains', domains)
         return { ...domains }
     } catch (error) {
         console.error(error)
