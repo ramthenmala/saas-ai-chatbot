@@ -1,17 +1,9 @@
 import { cn } from '@/lib/utils'
+import { MenuItemProps } from '@/types/MenuItemProps'
 import Link from 'next/link'
 import React from 'react'
 
-type Props = {
-    size: 'max' | 'min'
-    label: string
-    icon: JSX.Element
-    path?: string
-    current?: string
-    onSignOut?(): void
-}
-
-const MenuItem = ({ size, path, icon, label, current, onSignOut }: Props) => {
+const MenuItem = ({ size, path, icon, label, current, onSignOut }: MenuItemProps) => {
     switch (size) {
         case 'max':
             return (

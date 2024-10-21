@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const EmailIcon = (props: Props) => {
+const EmailIcon = () => {
   return (
     <svg
       width="24"

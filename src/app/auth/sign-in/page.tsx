@@ -21,7 +21,7 @@ const SignInPage = () => {
                             <p>
                                 Don’t have an account?{' '}
                                 <Link
-                                    href="/auth/signup"
+                                    href="/auth/sign-up"
                                     className="font-bold"
                                 >
                                     Create one

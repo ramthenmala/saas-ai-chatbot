@@ -1,9 +1,10 @@
+import React from 'react'
 import { onLoginUser } from '@/actions/auth/onLoginUser'
 import Sidebar from '@/components/Sidebar'
 import { ChatProvider } from '@/context/useChat'
-import React from 'react'
+import { ReactChildrenProps } from '@/types/Children'
 
-const Layout = async ({ children}) => {
+const Layout = async ({ children}: ReactChildrenProps) => {
     const authenticated = await onLoginUser()
     if (!authenticated) return null;
     return (

@@ -1,17 +1,11 @@
 import React from 'react'
-import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Edit } from 'lucide-react'
 import { ErrorMessage } from '@hookform/error-message'
+import { UploadButtonProps } from '@/types/UploadButtonProps'
 
-type Props = {
-    register: UseFormRegister<any>
-    errors: FieldErrors<FieldValues>
-    label: string
-}
-
-const UploadButton = ({ errors, label, register }: Props) => {
+const UploadButton = ({ errors, label, register }: UploadButtonProps) => {
     return (
         <>
             <div className="felx gap-2 items-center">

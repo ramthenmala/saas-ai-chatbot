@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const IntegrationsIcon = (props: Props) => {
+const IntegrationsIcon = () => {
   return (
     <svg
       width="24"

@@ -6,15 +6,9 @@ import {
     DrawerTitle,
     DrawerTrigger,
 } from '../ui/drawer'
+import { AppDrawerProps } from '@/types/AppDrawerProps'
 
-type Props = {
-    onOpen: JSX.Element
-    children: React.ReactNode
-    title: string
-    description: string
-}
-
-const AppDrawer = ({ children, description, onOpen, title }: Props) => {
+const AppDrawer = ({ children, description, onOpen, title }: AppDrawerProps) => {
     return (
         <Drawer>
             <DrawerTrigger>{onOpen}</DrawerTrigger>

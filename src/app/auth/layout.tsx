@@ -1,12 +1,9 @@
+import { ReactChildrenProps } from '@/types/Children';
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image';
 import { redirect } from 'next/navigation';
 
-type Props = {
-    children: React.ReactNode
-}
-
-const Layout = async ({ children }: Props) => {
+const Layout = async ({ children }: ReactChildrenProps) => {
 
     const user = await currentUser();
 

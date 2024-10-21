@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const DashboardIcon = (props: Props) => {
+const DashboardIcon = () => {
   return (
     <svg
       width="24"

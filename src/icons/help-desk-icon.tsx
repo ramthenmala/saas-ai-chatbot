@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const HelpDeskIcon = (props: Props) => {
+const HelpDeskIcon = () => {
   return (
     <svg
       width="20"

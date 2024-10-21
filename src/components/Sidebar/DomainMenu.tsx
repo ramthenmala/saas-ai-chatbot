@@ -9,20 +9,9 @@ import { useDomain } from '@/hooks/use-domain'
 import AppDrawer from '../AppDrawer/AppDrawer'
 import { Loader } from '../Loader'
 import UploadButton from '../UploadButton/UploadButton'
+import { DomainProps } from '@/types/DomainProps'
 
-type Props = {
-    min?: boolean
-    domains:
-    | {
-        id: string
-        name: string
-        icon: string | null
-    }[]
-    | null
-    | undefined
-}
-
-const DomainMenu = ({ domains, min }: Props) => {
+const DomainMenu = ({ domains, min }: DomainProps) => {
     const { register, onAddDomain, loading, errors, isDomain } = useDomain()
 
     return (

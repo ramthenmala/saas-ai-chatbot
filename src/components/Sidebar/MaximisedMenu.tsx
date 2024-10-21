@@ -4,22 +4,9 @@ import React from 'react'
 import { SIDE_BAR_MENU } from '@/constants/menu'
 import DomainMenu from './DomainMenu'
 import MenuItem from './MenuItem'
+import { MaxMenuProps } from '@/types/MaxMenuProps'
 
-type Props = {
-    onExpand(): void
-    current: string
-    onSignOut(): void
-    domains:
-    | {
-        id: string
-        name: string
-        icon: string | null
-    }[]
-    | null
-    | undefined
-}
-
-const MaxMenu = ({ current, domains, onExpand, onSignOut }: Props) => {
+const MaxMenu = ({ current, domains, onExpand, onSignOut }: MaxMenuProps) => {
     return (
         <div className="py-3 px-4 flex flex-col h-full">
             <div className="flex justify-between items-center">
