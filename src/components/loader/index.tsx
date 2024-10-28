@@ -5,8 +5,8 @@ import { cn } from '@/app/lib/utils';
 export type LoaderProps = {
     loading: boolean,
     children: React.ReactNode;
-    className: string;
-    noPadding: boolean;
+    className?: string;
+    noPadding?: boolean;
 }
 
 export const Loader = ({ loading, children, className, noPadding }: LoaderProps) => {

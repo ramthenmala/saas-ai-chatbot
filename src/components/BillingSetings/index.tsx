@@ -2,10 +2,14 @@ import React from 'react'
 import onGetSubscriptionPlan from '@/actions/settings/onGetSubscriptionPlan'
 import SectionLabel from '../SectionLabel';
 import { Card, CardContent, CardDescription } from '../ui/card';
-import { Plus } from 'lucide-react';
+import { CheckCircle2, Plus } from 'lucide-react';
+import { pricingCards } from '@/constants/pricingCards';
 
 const BillingSetings = async () => {
     const plan = await onGetSubscriptionPlan();
+    const planFeatures = pricingCards.find(card => card.title.toUpperCase() === plan?.toUpperCase())?.features;
+
+    if (!planFeatures) return;
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-5 gap-10'>
@@ -30,6 +34,13 @@ const BillingSetings = async () => {
             <div className="lg:col-span-2">
                 <h3 className="text-xl font-semibold mb-2">Current Plan</h3>
                 <p className="text-sm font-semibold">{plan}</p>
+
+                {planFeatures.map(feature => (
+                    <div className='flex gap-2 py-1' key={feature}>
+                        <CheckCircle2 />
+                        <p className='text-muted-foreground'>{ feature}</p>
+                    </div>
+                ))}
             </div>
         </div>
     )
