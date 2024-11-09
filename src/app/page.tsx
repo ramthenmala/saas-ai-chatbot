@@ -12,7 +12,7 @@ export default function Home() {
             An AI powered sales assistant chatbot
           </span>
           <Image
-            src="/images/corinna-ai-logo.png"
+            src="/images/arianna-ai.png"
             width={500}
             height={100}
             alt="Logo"
