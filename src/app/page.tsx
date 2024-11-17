@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer";
 import NavBar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -42,6 +43,8 @@ export default function Home() {
           {" you're"} not ready to commit you can get started for free.
         </p>
       </section>
+
+      <Footer />
     </>
   );
 }
